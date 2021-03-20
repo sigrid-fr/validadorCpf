@@ -3,6 +3,7 @@ package com.sigrid.tdd_bdd.validadorCpf;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+//import org.junit.jupiter.api.DisplayName;
 import com.sigrid.tdd_bdd.validadorCpf.models.Cliente;
 
 
@@ -74,11 +75,19 @@ class ValidadorCpfApplicationTests {
 	}
 
 	@Test
-	void fazendoTesteDeCpfValidoComVirgula() {
+	void fazendoTesteDeCpfInvalidoComVirgula() {
 		Cliente cliente = new Cliente();
 		cliente.setNome("Sigrid");
-		cliente.setCpf("018,522.610-80");
-		assertEquals(true, cliente.validarCPF());
+		cliente.setCpf("018,522.610-10");
+		assertEquals(false, cliente.validarCPF());
+	}
+
+	@Test
+	void fazendoTesteDeCpfValidoComCpfMalucoQuePassou() {
+		Cliente cliente = new Cliente();
+		cliente.setNome("Sigrid");
+		cliente.setCpf("69b.969.790-88");
+		assertEquals(false, cliente.validarCPF());
 	}
 
 }
