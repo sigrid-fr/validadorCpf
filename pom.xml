@@ -14,7 +14,7 @@
 	<name>validadorCpf</name>
 	<description>Este e um projeto educacional com o intuito de fazer um treinamento sobre testes automatizados</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
